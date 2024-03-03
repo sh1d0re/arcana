@@ -125,4 +125,4 @@ class arcanaid():
         random.seed(text)
         for i in range(10):finaltxt+=random.choice(encodetxt)
         return(finaltxt)''' > b2eC.py
-python3 main.py
+cd ..;python3 main.py
