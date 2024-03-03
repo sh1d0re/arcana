@@ -1,4 +1,3 @@
-clear
 echo '''
 print("┏━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n┃  ╭────╮  ┃   ┏━┓ ┏┓  ┏━┓ ┏━╸ ┏━┓ ┏┓╻ ┏━┓                        ┃\n┃  │╭───╯  ┃   ┣━┫ ┣┻┓ ┣━┫ ┃   ┣━┫ ┃┃┃ ┣━┫                        ┃\n┃  ╰╯      ┃   ╹ ╹ ╹ ╹ ╹ ╹ ┗━╸ ╹ ╹ ╹┗┛ ╹ ╹                        ┃\n┡━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩\n│                     PROGRAMMER : Kunihito Takada                │\n│                        LICENSE : GPL-v3                         │\n│                       LANGUAGE : Python                         │\n└────────────────────────────────┴────────────────────────────────┘")
 print("━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n[ 1: LOADING    PyP ] ┃ \x1b[31mEnter \x1b[31;1mControl&C\x1b[0m\x1b[31m To Abort. Leave To Proceed.\x1b[0m")
@@ -125,4 +124,5 @@ class arcanaid():
         random.seed(text)
         for i in range(10):finaltxt+=random.choice(encodetxt)
         return(finaltxt)''' > b2eC.py
+clear
 cd ..;python3 main.py
