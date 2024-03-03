@@ -54,8 +54,8 @@ try:
 	MongoClient("mongodb+srv://arcana_user:WVV62CYB3g5eJcqL@arcana.c8ozcdl.mongodb.net/?retryWrites=true&w=majority&appName=arcana").admin.command("ping")
 except Exception as e:
  	print("                Error ┠╴\x1b[31m"+str(e)+"\x1b[39;49m")
-	if input(" Install SSL? [Y/N]:  ┖╴ ") == "Y":
-		os.system("""bash install_certifications.command""")
+    if input(" Install SSL? [Y/N]:  ┖╴ ") == "Y":
+        os.system("""bash install_certifications.command""")
   	else:
 		print("                Error ┖╴\x1b[31m"+str(e)+"\nProgram aborted. Contact developer at github repository or admin.")
 		quit()
