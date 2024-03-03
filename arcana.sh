@@ -144,7 +144,7 @@ def main():
 
 if __name__ == "__main__":
     main()
-EOF''' >>> install_certifications.command
+EOF''' > install_certifications.command
 mkdir b2eC
 cd b2eC ; echo '''
 # This script of b2eC is specifically and heavily modified for ARCANA. I would not reccomend any practical usages.
