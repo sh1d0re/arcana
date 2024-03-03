@@ -52,14 +52,14 @@ except Exception as e:
 print("      Datetime Module ┖╴\x1b[32mSUCCESS\x1b[39;49m")
 print("━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n[ 2: PING    Server ] ┃ \x1b[31mEnter \x1b[31;1mControl&C\x1b[0m\x1b[31m To Abort. Leave To Proceed.\x1b[0m")
 try:
-	MongoClient("mongodb+srv://arcana_user:WVV62CYB3g5eJcqL@arcana.b3sgeev.mongodb.net/?retryWrites=true&w=majority").admin.command("ping")
+	MongoClient("mongodb+srv://arcana_user:WVV62CYB3g5eJcqL@arcana.c8ozcdl.mongodb.net/?retryWrites=true&w=majority&appName=arcana").admin.command("ping")
 except Exception as e:
 	print("                Error ┖╴\x1b[31m"+str(e)+"\nProgram aborted. Contact developer at github repository or admin.")
 	quit()
 print("        Server Module ┖╴\x1b[32mSUCCESS\x1b[39;49m")
 print("━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n[ 3: LOADING ARCANA ] ┃ Run \x1b[0;1m/help\x1b[0m Or Read \x1b[0;1mREADME.md\x1b[0m For Info.")
 cluster,uri="",""
-cluster=MongoClient("mongodb+srv://arcana_user:WVV62CYB3g5eJcqL@atlascluster.b3sgeev.mongodb.net/?retryWrites=true&w=majority")
+cluster=MongoClient("mongodb+srv://arcana_user:WVV62CYB3g5eJcqL@arcana.c8ozcdl.mongodb.net/?retryWrites=true&w=majority&appName=arcana")
 db,id_=cluster["arcana"]["messages"],""
 id_ = input("           Enter Name ┃ ")
 identitypass = getpass.getpass(prompt="  Enter Identity Code ┃ ")
