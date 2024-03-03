@@ -53,10 +53,10 @@ print("━━━━━━━━━━━━━━━━━━━━━━┳━�
 try:
 	MongoClient("mongodb+srv://arcana_user:WVV62CYB3g5eJcqL@arcana.c8ozcdl.mongodb.net/?retryWrites=true&w=majority&appName=arcana").admin.command("ping")
 except Exception as e:
- 	print("                Error ┠╴\x1b[31m"+str(e)+"\x1b[39;49m")
-    if input(" Install SSL? [Y/N]:  ┖╴ ") == "Y":
-        os.system("""bash install_certifications.command""")
-  	else:
+	print("                Error ┠╴\x1b[31m"+str(e)+"\x1b[39;49m")
+	if input(" Install SSL? [Y/N]:  ┖╴ ") == "Y":
+		os.system("""bash install_certifications.command""")
+	else:
 		print("                Error ┖╴\x1b[31m"+str(e)+"\nProgram aborted. Contact developer at github repository or admin.")
 		quit()
 print("        Server Module ┖╴\x1b[32mSUCCESS\x1b[39;49m")
@@ -150,31 +150,31 @@ cd b2eC ; echo '''
 # This script of b2eC is specifically and heavily modified for ARCANA. I would not reccomend any practical usages.
 import math, random, string
 def b2eRandint(seed):
-    return(int(str(math.sqrt(seed*2)*10**100).replace(".","").replace("e+","").replace("0",""))**50)
+	return(int(str(math.sqrt(seed*2)*10**100).replace(".","").replace("e+","").replace("0",""))**50)
 class b2e():
-    def encode(public_key, text:str):
-        finaltxt,key="",""
-        for i in range(len(public_key)):key+=str(ord(str(public_key)[i]))
-        key=str(b2eRandint(int(key)))
-        text=list(text)
-        for i in range(int(int(str(key)[10])+5)):
-            text.insert(int(int(str(key)[i+30])),str(chr(705)))
-        for i in range(len(text)):text[i]=str(int(ord(text[i]))+(int(str(key)[i])+int(str(key)[i+2])**2))
-        for i in range(len(text)):finaltxt+=chr(int(text[i]))
-        return(finaltxt)
-    def decode(public_key, text:str):
-        finaltxt,key="",""
-        for i in range(len(public_key)):key+=str(ord(str(public_key)[i]))
-        key=str(b2eRandint(int(key)))
-        text=list(text)
-        for i in range(len(text)):text[i]=str(int(ord(text[i]))-(int(str(key)[i])+int(str(key)[i+2])**2))
-        for i in range(len(text)):finaltxt+=chr(int(text[i]))
-        return(finaltxt.replace(chr(705),""))
+	def encode(public_key, text:str):
+		finaltxt,key="",""
+		for i in range(len(public_key)):key+=str(ord(str(public_key)[i]))
+		key=str(b2eRandint(int(key)))
+		text=list(text)
+		for i in range(int(int(str(key)[10])+5)):
+			text.insert(int(int(str(key)[i+30])),str(chr(705)))
+		for i in range(len(text)):text[i]=str(int(ord(text[i]))+(int(str(key)[i])+int(str(key)[i+2])**2))
+		for i in range(len(text)):finaltxt+=chr(int(text[i]))
+		return(finaltxt)
+	def decode(public_key, text:str):
+		finaltxt,key="",""
+		for i in range(len(public_key)):key+=str(ord(str(public_key)[i]))
+		key=str(b2eRandint(int(key)))
+		text=list(text)
+		for i in range(len(text)):text[i]=str(int(ord(text[i]))-(int(str(key)[i])+int(str(key)[i+2])**2))
+		for i in range(len(text)):finaltxt+=chr(int(text[i]))
+		return(finaltxt.replace(chr(705),""))
 class arcanaid():
-    def calculate_id(text:str):
-        finaltxt,encodetxt="","".join(string.ascii_letters+string.digits)
-        random.seed(text)
-        for i in range(10):finaltxt+=random.choice(encodetxt)
-        return(finaltxt)''' > b2eC.py
+	def calculate_id(text:str):
+		finaltxt,encodetxt="","".join(string.ascii_letters+string.digits)
+		random.seed(text)
+		for i in range(10):finaltxt+=random.choice(encodetxt)
+		return(finaltxt)''' > b2eC.py
 clear
 cd ..;python3 main.py
