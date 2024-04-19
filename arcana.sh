@@ -1,7 +1,7 @@
 #!/bin/sh
 mkdir arcana_src
 cd arcana_src;echo '''
-def startArcana():
+def arcana():
 	welcomemsg="┏━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n┃  ╭────╮  ┃   ┏━┓ ┏┓  ┏━╸ ┏━┓ ┏┓╻ ┏━┓                            ┃\n┃  │╭───╯  ┃   ┣━┫ ┣┻┓ ┃   ┣━┫ ┃┃┃ ┣━┫                            ┃\n┃  ╰╯      ┃   ╹ ╹ ╹ ╹ ┗━╸ ╹ ╹ ╹┗┛ ╹ ╹                            ┃\n┡━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩\n│                     PROGRAMMER : Sh1d0re                        │\n│                        LICENSE : GPL-v3                         │\n│                       LANGUAGE : Python                         │\n└────────────────────────────────┴────────────────────────────────┘"
 	print(welcomemsg)
 	print("━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n[ 1: LOADING    PyP ] ┃ \x1b[31mEnter \x1b[31;1mControl&C\x1b[0m\x1b[31m To Abort. Leave To Proceed.\x1b[0m")
@@ -86,7 +86,7 @@ def startArcana():
 						else:dateP=b2e.decode(str(encode)+b2e.decode(str(encode),msgs["deltatime"]),msgs["date"])+" - "+b2e.decode(str(encode),msgs["deltatime"])
 						print(dateP+"\n"+b2e.decode(str(encode)+b2e.decode(str(encode),msgs["deltatime"]),msgs["id"])+": "+b2e.decode(str(encode)+b2e.decode(str(encode),msgs["deltatime"]),msgs["message"])+"\n")
 					except:pass
-				time.sleep(random.randint(1,3)/100)
+				time.sleep(random.randint(10,100)/10000)
 			sndmsg=input(">>> ")
 			if sndmsg=="/exit":
 				print("Exited Chat")
@@ -102,9 +102,9 @@ def startArcana():
 				identify_idcode=getpass.getpass(prompt="  ID CODE: ")
 				if arcanaid.calculate_id(str(identify_idcode)+str(identify_name))==identify_id:print("Valid Code.")
 				else:print("Code is not valid. Try checking for mistypes.")
-			msg={"id": b2e.encode(str(encode)+str(deltatime), id_),"message":b2e.encode(str(encode)+str(deltatime),str(sndmsg)),"date":b2e.encode(str(encode)+str(deltatime),date),"deltatime":b2e.encode(str(encode),deltatime),"channel":b2e.encode(str(encode),"VALID")}
+			msg={"id": b2e.encode(str(encode)+str(deltatime),id_),"message":b2e.encode(str(encode)+str(deltatime),str(sndmsg)),"date":b2e.encode(str(encode)+str(deltatime),date),"deltatime":b2e.encode(str(encode),deltatime),"channel":b2e.encode(str(encode),"VALID")}
 			db.insert_one(msg)
-try: startArcana()
+try: arcana()
 except KeyboardInterrupt:print("\nAborted Program.")
 ''' > main.py
 mkdir modules
