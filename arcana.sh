@@ -4,68 +4,68 @@ cd arcana_src;echo '''
 def arcana():
 	welcomemsg="┏━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n┃  ╭────╮  ┃   ┏━┓ ┏┓  ┏━╸ ┏━┓ ┏┓╻ ┏━┓                            ┃\n┃  │╭───╯  ┃   ┣━┫ ┣┻┓ ┃   ┣━┫ ┃┃┃ ┣━┫                            ┃\n┃  ╰╯      ┃   ╹ ╹ ╹ ╹ ┗━╸ ╹ ╹ ╹┗┛ ╹ ╹                            ┃\n┡━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩\n│                     PROGRAMMER : Sh1d0re                        │\n│                        LICENSE : GPL-v3                         │\n│                       LANGUAGE : Python                         │\n└────────────────────────────────┴────────────────────────────────┘"
 	print(welcomemsg)
-	print("━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n[ 1: LOADING    PyP ] ┃ \x1b[31mEnter \x1b[31;1mControl&C\x1b[0m\x1b[31m To Abort. Leave To Proceed.\x1b[0m")
-	def loadmsgs(status,prompt:int):
-		modulenames=["        OS","    Random","   Getpass","      Time","Subprocess","     B2E-C","   PyMongo","  Datetime","    Server"]
-		prompt=modulenames[prompt]
+	print("━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n[ 1: LOADING    PyP ] ┃ \x1b[31mEnter \x1b[31;1mControl&C\x1b[0;31m To Abort. Leave To Proceed.\x1b[0m")
+	def importMsgs(status,prompt:str):
+		for i in range(10-len(str(prompt))):prompt=" "+prompt
 		if "error" in status:
 			print("    "+prompt+" Module ┠╴\x1b[31mERROR\x1b[39;49m\n──────────────────────┸────────────────────────────────────────────\n\x1b[31m"+str(e)+"\x1b[0m")
 			if "." in status:print("──────────────────────┰────────────────────────────────────────────")
 			else:
-				print("───────────────────────────────────────────────────────────────────\n\x1b[31;1mProgram aborted due to error. Try contacting the github repo.\x1b[0m\n")
+				print("───────────────────────────────────────────────────────────────────\n\x1b[31;1mProgram aborted due to error. Try contacting the github repo if you see no solution.\x1b[0m\n")
 				quit()
-		if "success" in status:
+		elif "success" in status:
 			if "." in status:print("    "+prompt+" Module ┖╴\x1b[32mSUCCESS\x1b[39;49m")
 			else:print("    "+prompt+" Module ┠╴\x1b[32mSUCCESS\x1b[39;49m")
 	try:import os
-	except Exception as e:loadmsgs("error",0)
-	loadmsgs("success",0)
+	except Exception as e:importMsgs("error","OS")
+	importMsgs("success","OS")
 	try:import random
-	except Exception as e:loadmsgs("error",1)
-	loadmsgs("success",1)
+	except Exception as e:importMsgs("error","Random")
+	importMsgs("success","Random")
 	try:import getpass
-	except Exception as e:loadmsgs("error",2)
-	loadmsgs("success",2)
+	except Exception as e:importMsgs("error","Getpass")
+	importMsgs("success","Getpass")
 	try:import time
-	except Exception as e:loadmsgs("error",3)
-	loadmsgs("success",3)
+	except Exception as e:importMsgs("error","Time")
+	importMsgs("success","Time")
 	try:import subprocess
-	except Exception as e:loadmsgs("error",4)
-	loadmsgs("success",4)
+	except Exception as e:importMsgs("error","Subprocess")
+	importMsgs("success","Subprocess")
 	try:from modules.b2eC import b2e,arcanaid
-	except Exception as e:loadmsgs("error",5)
-	loadmsgs("success",5)
+	except Exception as e:importMsgs("error","B2E-C")
+	importMsgs("success","B2E-C")
 	try:
 		from pymongo.mongo_client import MongoClient
 		from pymongo.server_api import ServerApi
 	except Exception as e:
-		loadmsgs("error.",6)
+		importMsgs("error.","Pymongo")
 		ask=input("     Install? [Y/N]:  ┠╴")
 		if ask=="Y" or ask=="y":
 			print("──────────────────────┸────────────────────────────────────────────")
 			os.system("""python3 -m pip install "pymongo[srv]" """)
 			print("──────────────────────┰────────────────────────────────────────────")
-		else:loadmsgs("error",6)
-	loadmsgs("success",6)
+		else:importMsgs("error","Pymongo")
+	importMsgs("success","Pymongo")
 	try:from datetime import datetime
-	except Exception as e:loadmsgs("error",7)
-	loadmsgs("success.",7)
+	except Exception as e:importMsgs("error","Datetime")
+	importMsgs("success.","Datetime")
 	print("━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n[ 2: PING    Server ] ┃ \x1b[31mEnter \x1b[31;1mControl&C\x1b[0m\x1b[31m To Abort. Leave To Proceed.\x1b[0m")
-	uri = "mongodb+srv://arcana_user:9LBprbqAJKnTfgeQ@arcana.c8ozcdl.mongodb.net/?retryWrites=true&w=majority&appName=arcana"
-	client = MongoClient(uri, server_api=ServerApi("1"))
-	try:client.admin.command("ping")
+	uri="mongodb+srv://arcana_user:9LBprbqAJKnTfgeQ@arcana.c8ozcdl.mongodb.net/?retryWrites=true&w=majority&appName=arcana"
+	try:
+		client=MongoClient(uri, server_api=ServerApi("1"))
+		client.admin.command("ping")
 	except Exception as e:
-		loadmsgs("error.",8)
+		importMsgs("error.","Server")
 		if "ssl" in str(e):
-			ask=input(" Install SSL? [Y/N]:  ┠╴")
+			ask=input(" Install SSLc? [Y/N]: ┠╴")
 			if ask=="Y" or ask=="y":
 				print("──────────────────────┸────────────────────────────────────────────")
 				os.system("""bash modules/install_certifications.command""")
 				print("──────────────────────┰────────────────────────────────────────────")
-			else:loadmsgs("error.",8)
-		print("                 Note ┖╴Check your internet, VPN, proxies, etc.\n\x1b[31;1mProgram aborted due to error. Try contacting the github repo.\x1b[0m\n")
+			else:importMsgs("error.","Server")
+		print("                 Note ┖╴Check your internet, VPN, proxies, etc.\n\x1b[31;1mProgram aborted due to error. Try contacting the github repo if you see no solution.\x1b[0m\n")
 		quit()
-	loadmsgs("success.",8)
+	importMsgs("success.","Server")
 	while True:
 		print("━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n[ 3: Arcana         ] ┃ Run \x1b[0;1m/help\x1b[0m Or Read \x1b[0;1mREADME.md\x1b[0m For Info.")
 		cluster=""
@@ -86,26 +86,27 @@ def arcana():
 						else:dateP=b2e.decode(str(encode)+b2e.decode(str(encode),msgs["deltatime"]),msgs["date"])+" - "+b2e.decode(str(encode),msgs["deltatime"])
 						print(dateP+"\n"+b2e.decode(str(encode)+b2e.decode(str(encode),msgs["deltatime"]),msgs["id"])+": "+b2e.decode(str(encode)+b2e.decode(str(encode),msgs["deltatime"]),msgs["message"])+"\n")
 					except:pass
-				time.sleep(random.randint(10,100)/10000)
-			sndmsg=input(">>> ")
-			if sndmsg=="/exit":
+				time.sleep(random.randint(10,100)/100000)
+			userInput=input(">>> ")
+			if userInput=="/exit":
 				print("Exited Chat")
 				os.system("clear")
 				print(welcomemsg)
 				break
-			if sndmsg=="/help":
+			if userInput=="/help":
 				print("       Outputing Help ┖╴")
 				print(str(subprocess.getouput("cat README.md")))
-			if sndmsg=="/identify":
+			if userInput=="/identify":
 				identify_name=input("User Name: ")
 				identify_id=input("  User ID: ")
 				identify_idcode=getpass.getpass(prompt="  ID CODE: ")
 				if arcanaid.calculate_id(str(identify_idcode)+str(identify_name))==identify_id:print("Valid Code.")
 				else:print("Code is not valid. Try checking for mistypes.")
-			msg={"id": b2e.encode(str(encode)+str(deltatime),id_),"message":b2e.encode(str(encode)+str(deltatime),str(sndmsg)),"date":b2e.encode(str(encode)+str(deltatime),date),"deltatime":b2e.encode(str(encode),deltatime),"channel":b2e.encode(str(encode),"VALID")}
+			msg={"id": b2e.encode(str(encode)+str(deltatime),id_),"message":b2e.encode(str(encode)+str(deltatime),str(userInput)),"date":b2e.encode(str(encode)+str(deltatime),date),"deltatime":b2e.encode(str(encode),deltatime),"channel":b2e.encode(str(encode),"VALID")}
 			db.insert_one(msg)
 try: arcana()
 except KeyboardInterrupt:print("\nAborted Program.")
+except Exception as e:print("\x1b[31;1mProgram aborted due to error. This error is estimated to be caused by a program error or corruption. Please report it to the github repo [ https://github.com/sh1d0re/arcana ] for the dev team to fix the issue.\x1b[0m\n")
 ''' > main.py
 mkdir modules
 cd modules ; echo '''
@@ -176,5 +177,4 @@ if __name__ == "__main__":
     main()
 EOF''' > install_certifications.command
 echo '''True''' > .installation.txt
-clear
-cd .. ; python3 main.py
+clear ; cd .. ; python3 main.py
