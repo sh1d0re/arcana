@@ -5,5 +5,5 @@ Arcana uses the B2E-C encoding system. Refer on this: https://github.com/sh1d0re
 Installation:
 ```
 git clone https://github.com/sh1d0re/arcana
-cd arcana ; bash arcana.sh
+bash arcana/arcana.sh
 ```
