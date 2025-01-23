@@ -1,4 +1,3 @@
-#!/bin/sh
 installation=$(cat arcana_src/modules/.installation.txt)
 truevar='True'
 if [ $installation = 'True' ]; then 
