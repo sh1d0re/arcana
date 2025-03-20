@@ -12,23 +12,26 @@ from statistics import Counter
 class debug:
     def showAllVariables(initialVariables:dict):
         ignoreVars = ["__name__", "__doc__", "__package__", "__loader__", "__spec__", "__annotations__", "__builtins__", "__file__", "__cached__", "showAllVariables"]
-        print("".join([f"""\x1b[30;47;1m|({type(variable)}) {variable}: \x1b[30;47m{initialVariables[variable]} \x1b[0m|""" for variable in list(initialVariables.keys()) if not variable in ignoreVars]))
+        print("".join([f"""|\x1b[30;47;1m{type(variable)}) {variable}: \x1b[30;47m{initialVariables[variable]} \x1b[0m|""" for variable in list(initialVariables.keys()) if not variable in ignoreVars]))
 
 primeNumbers = []#json.load(open("../data/primeNumbers.json"))["primeNumbers"]
+
+config = json.load(open("config.json"))
 
 recursionLimit = 100
 recursionCount = 0
 maximumNumericalLengthUsed = 300
 class b2eRandom:
-    def shuffle(text: str, order: int, directionMode: bool) -> str:
-        for n in list(str(order)):
-            debug.showAllVariables(vars())
-            text = text[:int(n)] + text[int(n)+1:] + text[int(n)]
-        print("\n")
-        for n in reversed(list(str(order))):
-            debug.showAllVariables(vars())
-            text = text[:int(n)] + text[-1] + text[int(n):len(text)-1]
-        print(text)
+    def shuffle(text: str, order = None, directionMode = 0) -> str:
+        if order == None:
+            order = b2eRandom.randint("")
+        if directionMode == 0:
+            for n in list(str(order)):
+                text = text[:int(n)] + text[int(n)+1:] + text[int(n)]
+        elif directionMode == 1:
+            for n in reversed(list(str(order))):
+                text = text[:int(n)] + text[-1] + text[int(n):len(text)-1]
+        return(text)
 
     def convertTextToNumeric(text:str) -> int:
         returnNumber = 1
@@ -76,7 +79,11 @@ class b2eRandom:
         for _ in range(int((timeSeed * resultText) ** 2 + timeSeed) % 100):
             resultText += int(b2eRandom.limitStringToLimit(str(b2eRandom.recursion(timeSeed * resultText * length + seed) * _ + seed + resultText), maximumNumericalLengthUsed)) + resultText * _
         timeStamp += b2eRandom.getTime()
-        return(b2eRandom.limitStringToLimit(str(int(str((resultText ** 5) * timeStamp).replace("0", "")) + resultText), length))
+        return(b2eRandom.limitStringToLimit(
+            b2eRandom.shuffle(
+                str(int(str((resultText ** 5) * timeStamp).replace("0", "")) + resultText), resultText, True
+            ), length)
+        )
 
 
 class b2eAssymetric():
@@ -125,5 +132,6 @@ class arcanaid():
 
 print(b2eRandom.shuffle("abcdefghijklmnopqrstvuxyz", 5129123827034053, True))
 
-#for i in range(20000):
-    #print(b2eRandom.randrange("asd", 1, 19))
+#for i in range(200):
+#    print(b2eRandom.randint("asd", 15))
+
